@@ -15,20 +15,16 @@ user_id = sp.me()['id']
 # gets playlist id
 playlist_id = sp.user_playlist_create(user_id, playlist_name, public=is_playlist_public, description=playlist_description)["id"]
 
-# finds all the items in the current user's library
-library = sp.current_user_saved_tracks(limit=track_limit, offset=offset)
+for page in range (0, offset):
+    # finds all the items in the current user's library
+    library = sp.current_user_saved_tracks(limit=track_limit, offset=(page*track_limit))
 
-# gets track_id from library tracks
-track_id = []
-for item in library['items']:
-    if not item['track']:
-        continue
-    track_id.append(item['track']['id'])
+    # gets track_id from library tracks
+    track_id = []
+    for item in library['items']:
+        if not item['track']:
+            continue
+        track_id.append(item['track']['id'])
 
-# adds tracks into the newly created playlist
-sp.user_playlist_add_tracks(user_id, playlist_id, track_id);
-
-
-
-    
-
+    # adds tracks into the newly created playlist
+    sp.user_playlist_add_tracks(user_id, playlist_id, track_id)
