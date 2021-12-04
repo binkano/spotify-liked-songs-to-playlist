@@ -7,17 +7,20 @@ Pull this repo on the path you want
 
 Create a virtual environment
 ```sh
-python3 install -m venv [INSERT YOUR VENV NAME]
+python install -m venv [INSERT YOUR VENV NAME]
 ```
 
 Enter the virtual environment
 ```sh
-. /env/bin/activate
+. /[INSERT YOUR VENV NAME]/bin/activate
+or
+source /[INSERT YOUR VENV NAME]/bin/activate
 ```
+
 
 Download the requirements from requirements.txt
 ```sh
-python3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Add the appropriate information in **input.py** and **spotify_secrets.py**
@@ -25,7 +28,7 @@ Add the appropriate information in **input.py** and **spotify_secrets.py**
 Ensure you have internet connection and
 Run **spotify_logic.py**
 ```sh
-python3 run.py
+python spotify_logic.py
 ```
 
 A pop up will occur on your web browser and press accept (or else you cant use this :( )
